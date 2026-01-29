@@ -1,0 +1,86 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #d3d3d3;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex : 1;
+    overflow-y: auto;
+    padding: 1rem;
+    padding: 0;
+    margin-bottom: 4rem;
+    width: 100%;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    background: #d3d3d3;
+}
+
+h2 {
+    margin: 0 0 1rem 0;
+    padding-top: 1rem;
+    text-align: center;
+}
+
+hr {
+    margin-bottom: 1rem;
+}
+
+#tchat {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: #e2e2e2;
+    gap: 1rem;
+    border-radius: 8px;
+}
+
+#tchat div {
+    word-wrap: break-word;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: #fff;
+    border-top: 1px solid #c5c5c5;
+}
+
+.footer input {
+    padding: 0.8rem;
+    border: 1px solid #aaaaaa;
+    border-radius: 8px;
+}
+
+#user {
+    width: 200px;
+}
+
+#msg {
+    flex: 1;
+}
+
+.footer button {
+    padding: 0.8rem 2rem;
+    background: #838383;
+    color: white;
+    border: none;
+    border-radius: 8px;
+}

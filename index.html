@@ -3,47 +3,27 @@
     <head>
         <meta charset="UTF-8">
         <title>Les petits fripons</title>
+        <link rel="stylesheet" href="style.css">
         <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
         <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
-</head>
+    </head>
+
     <body>
-        <h2>Tchat</h2>
-        <div id="tchat"></div>
+        <div class="container">
+            <div class="header">
+                <h2>Tchat</h2>
+                <hr>
+            </div>
 
-        <input id="user" placeholder="Ton nom">
-        <input id="msg" placeholder="Message">
-        <button onclick="send()">Envoyer</button>
+            <div id="tchat"></div>
+        </div>
 
-        <script>
-        const firebaseConfig = {
-            apiKey: "AIzaSyDZYe9qxMzMEb4iU1XCjRX4bH0f9vJu37w",
-            authDomain: "tchat-kami.firebaseapp.com",
-            databaseURL: "https://tchat-kami-default-rtdb.europe-west1.firebasedatabase.app",
-            projectId: "tchat-kami",
-        };
+        <div class="footer">
+            <input id="user" placeholder="Pseudo">
+            <input id="msg" placeholder="Message">
+            <button onclick="send()">Envoyer</button>
+        </div>
 
-        firebase.initializeApp(firebaseConfig);
-        const db = firebase.database();
-
-        function send(){
-            const user = document.getElementById("user").value;
-            const msg = document.getElementById("msg").value;
-
-            if (!user || !msg) return;
-
-            db.ref('messages').push({user, msg});
-            document.getElementById("msg").value = "";
-        }
-
-        db.ref('messages').on('value', list => {
-            const tchat = document.getElementById("tchat");
-            tchat.innerHTML = "";
-            
-            list.forEach(result => {
-                const m = result.val();
-                tchat.innerHTML += `<div>${m.user}: ${m.msg}</div>`;
-            });
-        });
-        </script>
+        <script src="main.js"></script>
     </body>
 </html>
