@@ -1,3 +1,13 @@
+:root {
+    --bg: #e7e7e7;
+    --bg-box: #f7f7f7;
+    --bg-button: #6f6f6f;
+
+    --border: #aaaaaa;
+
+    --shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
 * {
     box-sizing: border-box;
 }
@@ -5,25 +15,25 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #d3d3d3;
+    background-color: var(--bg);
     height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-.container {
+#container {
     flex : 1;
-    overflow-y: auto;
-    padding: 1rem;
-    padding: 0;
-    margin-bottom: 4rem;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
 }
 
 .header {
     position: sticky;
     top: 0;
-    background: #d3d3d3;
+    background-color: var(--bg);
+    box-shadow: var(--shadow);
+    margin-bottom: 1rem;
 }
 
 h2 {
@@ -33,22 +43,65 @@ h2 {
 }
 
 hr {
+    border: none;
+    border-bottom: 1px solid var(--border);
+    margin: 0;
+}
+
+#main {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+    margin-right: 2rem;
+}
+
+#usersList {
+    width: 200px;
+    margin: 1rem;
+    margin-bottom: 2rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    border-radius: 8px;
+    overflow-x: hidden;
+}
+
+#usersList div {
+    background-color: var(--bg-box);
+    box-shadow: var(--shadow);
+    font-weight: bold;
+    padding: 0.8rem;
     margin-bottom: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid currentColor;
+    transition: scale ease-in-out 0.3s;
+}
+
+#usersList div:hover {
+    scale: 1.1;
 }
 
 #tchat {
-    display: flex;
-    flex-direction: column;
+    flex: 1;
     margin: 1rem;
     margin-bottom: 2rem;
     padding: 1rem;
-    background: #e2e2e2;
-    gap: 1rem;
+    background-color: var(--bg-box);
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    box-shadow: var(--shadow);
 }
 
 #tchat div {
+    padding-top: 1rem;
     word-wrap: break-word;
+}
+
+#typingText {
+    margin-left: 20rem;
+    font-style: italic;
+    opacity: 0.5;
 }
 
 .footer {
@@ -59,8 +112,9 @@ hr {
     display: flex;
     gap: 1rem;
     padding: 1rem;
-    background: #fff;
-    border-top: 1px solid #c5c5c5;
+    padding-right: 3rem;
+    background-color: var(--bg-box);
+    border-top: 1px solid #aaaaaa;
 }
 
 .footer input {
@@ -73,14 +127,75 @@ hr {
     width: 200px;
 }
 
-#msg {
+.inputWrapper {
+    position: relative;
     flex: 1;
+}
+
+#msg {
+    width: 100%;
+    padding: 0.8rem 3rem 0.8rem 1rem;
 }
 
 .footer button {
     padding: 0.8rem 2rem;
-    background: #838383;
-    color: white;
+    background-color: var(--bg-button);
+    color: var(--bg-box);
     border: none;
     border-radius: 8px;
+}
+
+#colorPicker {
+    width: 40px;
+    height: 40px;
+    -webkit-appearance: none;
+    appearance: none;
+    padding: 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#colorPicker::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+#colorPicker::-webkit-color-swatch {
+    border: none;
+    border-radius: 8px;
+}
+
+#emotesBtn {
+    position: absolute;
+    right: 12px;
+    top: 5px;
+    bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0rem;
+    font-size: 20px;
+    background-color: #ffffff;
+}
+
+#emotesPicker {
+    position: fixed;
+    bottom: 4rem;
+    right: 11rem;
+    background-color: var(--bg-box);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    gap: 10px;
+}
+
+#emotesPicker button {
+    background-color: var(--bg-box);
+    border: none;
+    font-size: 20px;
+}
+
+.hidden {
+    display: none !important;
 }

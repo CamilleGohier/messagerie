@@ -9,19 +9,38 @@
     </head>
 
     <body>
-        <div class="container">
+        <div id="container">
             <div class="header">
                 <h2>Tchat</h2>
                 <hr>
             </div>
 
-            <div id="tchat"></div>
+            <div id="main">
+                <div id="usersList"></div>
+                <div id="tchat"></div>
+            </div>
+
+            <div id="typingText"></div>
         </div>
 
         <div class="footer">
-            <input id="user" placeholder="Pseudo">
-            <input id="msg" placeholder="Message">
+            <input type="color" id="colorPicker" placeholder="">
+            <input id="pseudo" placeholder="Pseudo">
+            
+            <div class="inputWrapper">
+                <input id="msg" placeholder="Message" autofocus>
+                <button id="emotesBtn">😊</button>
+            </div>
+
             <button onclick="send()">Envoyer</button>
+        </div>
+
+        <div id="emotesPicker" class="hidden">
+            <button class="emotes">😊</button>
+            <button class="emotes">😄</button>
+            <button class="emotes">☹️</button>
+            <button class="emotes">❤️</button>
+            <button class="emotes">😉</button>
         </div>
 
         <script src="main.js"></script>
