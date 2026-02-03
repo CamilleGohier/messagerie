@@ -80,13 +80,6 @@ colorPicker.addEventListener("change", function(e) {
     // Ajouter dans le futur le changement de la couleur texte du pseudo dans l'input
 })
 
-function ajusteMargin() {
-    container.style.marginBottom = footer.offsetHeight + "px";
-}
-
-ajusteMargin();
-window.addEventListener("resize", ajusteMargin);
-
 let users = {};
 
 bdd.ref("users").on('value', r => {
